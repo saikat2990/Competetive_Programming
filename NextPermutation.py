@@ -1,3 +1,4 @@
+
 def nextPermutation(nums):
     if len(nums)>0:
         tag=False
