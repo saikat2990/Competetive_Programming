@@ -1,27 +1,16 @@
-def listAddRecursively(firstIndex,secondIntex,nums,currentArr,currentTotal,ansList,iteration):
-    if firstIndex+currentTotal<=len(nums) and iteration<len(nums):
-        if len(currentArr)==currentTotal and iteration==len(nums)-1:
-            ansList.append(currentArr)
-            if secondIntex+(currentTotal-2)<len(nums)-1:
-                listAddRecursively(firstIndex,secondIntex+1,nums,[nums[firstIndex]],currentTotal,ansList,secondIntex+1)
-            else:
-                first = firstIndex+1
-                listAddRecursively(first, first + 1, nums, [nums[first]], currentTotal, ansList,
-                                          first + 1)
-        elif len(currentArr)==currentTotal and iteration!=len(nums)-1:
-            ansList.append(currentArr)
-            listAddRecursively(firstIndex, secondIntex + 1, nums, currentArr[:len(currentArr)-1], currentTotal, ansList, iteration)
+def getRecursiveAns(ansList,currentList,position,n):
+    if(position+1==n):
+        ansList.append(currentList)
+        return
+    for i in range(position,n):
+        print(currentList)
+        currentList[i]=0
+        getRecursiveAns(ansList,currentList.copy(),position+1,n)
+        currentList[i]=1
+def grayCode(n):
+    ansList=[]
+    currentList = [0 for i in range(n)]
+    getRecursiveAns(ansList,currentList.copy(),0,n)
+    print(ansList)
 
-        else :
-            currentArr.append(nums[iteration])
-            listAddRecursively(firstIndex, secondIntex, nums, currentArr, currentTotal, ansList, iteration + 1)
-    else:
-        return ansList
-
-def subsets(nums):
-    for i in range(2,len(nums)):
-        result = listAddRecursively(0, 1, nums, [nums[0]], i, [], 1)
-        print(result)
-
-
-subsets([1,2,3,4,5,6,7,8])
+grayCode(2)
