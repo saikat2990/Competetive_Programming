@@ -22,6 +22,6 @@ def solveNQueens(n):
     diag = set()
     off_diag = set()
     backtrack(0)
-    return res
+    return len(res)
 
 print(solveNQueens(4))
