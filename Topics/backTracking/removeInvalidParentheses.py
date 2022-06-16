@@ -12,7 +12,7 @@ def removeInvalidParentheses(s):
         right=0
     elif right>left:
         right=right-left
-        left=0lpp
+        left=0
     else:
         right=0
         left=0
