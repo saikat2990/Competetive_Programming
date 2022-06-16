@@ -3,7 +3,7 @@ def solveNQueens(n):
         if i == n:
             res.append(list(board))
         for j in range(n):
-            print("Before if: ",cols, diag, off_diag,j,i)
+            print("Before if: ",cols, diag, off_diag,i,j)
             if j not in cols and j - i not in diag and j + i not in off_diag:
                 cols.add(j)
                 diag.add(j - i)
@@ -22,6 +22,6 @@ def solveNQueens(n):
     diag = set()
     off_diag = set()
     backtrack(0)
-    return res
+    return len(res)
 
 print(solveNQueens(4))
